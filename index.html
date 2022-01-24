@@ -53,6 +53,7 @@
             position:absolute;
             left:50%;
             top:-50%;
+            z-index:10000;
             transform:translate(-50%,-50%);
             padding:10px 20px;
             font-size:20px;
@@ -119,6 +120,7 @@
             position:fixed;
             left:100%;
             right:-100%;
+            z-index:9999;
             top:70px;
             bottom:0;
             background-color:#fff;
@@ -135,7 +137,152 @@
         .main-nav>li{
             width:100%;
             border-bottom:1px solid #ccc;
-            padding:20px;
+        }
+        .main-nav>li>a{
+            display:block;
+            padding:16px;
+        }
+        .sub-nav{
+            display:none;
+            padding:0 20px;
+            font-size:0.8em;
+        }
+        .sub-nav li{
+            border-bottom:1px solid #ccc;
+            padding:10px;
+        }
+        .sub-nav li:last-of-type{
+            border-bottom:none;
+        }
+
+        .main-slider .container{
+            max-width:100%;
+            padding:0;
+        }
+        .bx-wrapper{
+            margin:0;
+            border:none;
+        }
+        .bx-pager{
+            bottom:30px !important;
+        }
+        .bx-pager-item a{
+            width:10px !important;
+            height:10px !important;
+            background-color:#fff !important;
+        }
+        .bx-pager-item a.active{
+            background-color:#ffe600 !important;
+        }
+        .bx-controls-direction{
+            display:none;
+        }
+        .coffee-story{
+            background-image:url('./images/main_sec1.jpg');
+            background-repeat:no-repeat;
+            background-position:center;
+            background-size:cover;
+        }
+        .coffee-story .inner{
+            padding:30px 0;
+        }
+        .coffee-story h2{
+            margin-bottom:10px;
+            font-weight:700;
+            font-size:1.2em;
+            color:#564e00;
+            text-transform:capitalize;
+        }
+        .coffee-story h3{
+            margin-bottom:10px;
+            font-weight:900;
+            font-size:3em;
+            color:#071f60;
+            text-transform:uppercase;
+        }
+        .coffee-story p{
+            display:none;
+        }
+        .btn-hover{
+            width:50px;
+            height:50px;
+            margin:30px 0 30px auto;
+            position:relative;
+        }
+        .ico-paik{
+            opacity:0;
+            width:100%;
+            height:100%;
+            border:2px solid #071f60;
+            border-radius:50%;
+            overflow:hidden;
+        }
+        .btn-hover:hover .ico-paik{
+            opacity:1;
+        }
+        .rotate-plus{
+            width:100%;
+            height:100%;
+            border-radius:50%;
+            background-color:#fff;
+            position:absolute;
+            left:0;
+            top:0;
+            transition:0.3s;;
+        }
+        .btn-hover:hover:hover .rotate-plus{
+            transform:rotate(360deg);
+            opacity:0;
+        }
+        .rotate-plus::before,.rotate-plus::after{
+            content:'';
+            display:block;
+            background-color:#000;
+            position:absolute;
+            left:50%;
+            top:50%;
+            transform:translate(-50%,-50%);
+        }
+        .rotate-plus::before{
+            width:20px;
+            height:4px;
+        }
+        .rotate-plus::after{
+            width:4px;
+            height:20px;
+        }
+        .fresh-coffee{
+            position:relative;
+        }
+        .fresh-coffee .img-box{
+            position:absolute;
+            left:0;
+            right:0;
+            top:0;
+            z-index:0;
+        }
+        .fresh-coffee .inner{
+            position: relative;
+            z-index:1;
+            padding:30px 0;
+        }
+        .fresh-coffee h3{
+            font-weight:900;
+            font-size:1.2em;
+            color:#6b4d30;
+            line-height:1.2;
+        }
+        .fresh-coffee h3::after{
+            content:'';
+            display:block;
+            width:37px;
+            height:2px;
+            margin:30px 0;
+            background-color:#6b4d30;
+        }
+        .fresh-coffee p{
+            font-weight:700;
+            line-height:1.5;
         }
 
 
@@ -150,6 +297,7 @@
             }
             .sm-nav{
                 display:flex;
+                margin-bottom:30px;
             }
             .btn-nav{
                 display:none;
@@ -162,6 +310,18 @@
                 margin-left:80px;
                 border-bottom:none;
                 padding:0;
+            }
+            .main-nav>li>a{
+                padding:0;
+            }
+            .sub-nav{
+                display:none !important;
+            }
+            .coffee-story p{
+                display:block;
+            }
+            .btn-hover{
+                margin:30px auto 30px 0;
             }
         }
 
@@ -244,19 +404,90 @@
                         </nav>
                     </div>
                 </div>
-
             </div>
         </header>
         <section class="sec main-slider">
-            <div class="container"></div>
+            <div class="container">
+                <div class="slider">
+                    <div>
+                        <a href="#">
+                            <picture>
+                                <source media="(min-width:768px)" srcset="./images/main-banner01.jpg">
+                                <img src="./images/mmain-banner01.jpg" alt="콜드브루 커피">
+                            </picture>
+                        </a>
+                    </div>
+                    <div>
+                        <a href="#">
+                            <picture>
+                                <source media="(min-width:768px)" srcset="./images/main-banner02.jpg">
+                                <img src="./images/mmain-banner02.jpg" alt="멤버십">
+                            </picture>
+                        </a>
+                    </div>
+                    <div>
+                        <a href="#">
+                            <picture>
+                                <source media="(min-width:768px)" srcset="./images/main-banner03.jpg">
+                                <img src="./images/mmain-banner03.png" alt="쑥라떼">
+                            </picture>
+                        </a>
+                    </div>
+                    <div>
+                        <a href="#">
+                            <picture>
+                                <source media="(min-width:768px)" srcset="./images/main-banner04.jpg">
+                                <img src="./images/mmain-banner04.jpg" alt="호떡라떼">
+                            </picture>
+                        </a>
+                    </div>
+                </div>
+            </div>
 
         </section>
         <section class="sec coffee-story">
-            <div class="container"></div>
+            <div class="container">
+                <div class="inner">
+                    <h2>the finest quality coffee plants</h2>
+                    <h3>paik's coffee story</h3>
+                    <p>균형잡힌 바디감으로 긴 여운을 남기는 빽다방 커피를 만나보세요.</p>
+                    <div class="btn-hover">
+                        <div class="ico-paik">
+                            <img src="./images/main_sec6.png" alt="바로가기 아이콘">
+                        </div>
+                        <div class="rotate-plus"></div>
+                    </div>
+                </div>
+            </div>
 
         </section>
         <section class="sec fresh-coffee">
-            <div class="container"></div>
+            <div class="container">
+                <div class="img-box">
+                    <picture>
+                        <source media="(min-width:1200px)" srcset="./images/main_sec2.jpg">
+                        <img src="./images/mmain_sec2.jpg" alt="프레쉬 커피">
+                    </picture>
+                </div>
+                <div class="inner">
+                    <h3>
+                        FRESH
+                        <br>
+                        COFFEE
+                    </h3>
+                    <P>
+                        신선한 뉴크롭 원두를 사용하여
+                        <br>
+                        추출한 커피메뉴!
+                    </P>
+                    <div class="btn-hover">
+                        <div class="ico-paik">
+                            <img src="./images/main_sec6.png" alt="바로가기 아이콘">
+                        </div>
+                        <div class="rotate-plus"></div>
+                    </div>
+                </div>
+            </div>
 
         </section>
         <section class="sec various-sweet">
@@ -289,6 +520,13 @@
                 $('.nav').toggleClass('active');
             }
         })
+        $('.main-nav>li').on({
+            'click':function(){
+                $(this).children('.sub-nav').slideToggle();
+            }
+        })
+
+        $('.slider').bxSlider();
     </script>
 </body>
 </html>
