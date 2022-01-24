@@ -43,6 +43,12 @@
             display:block;
             clear:both;
         }
+        .container{
+            width:100%;
+            max-width:1200px;
+            margin:0 auto;
+            padding:0 10px;
+        }
         .skip-menu a{
             position:absolute;
             left:50%;
@@ -56,10 +62,109 @@
         .skip-menu a:focus{
             top:50%;
         }
-
         .wrap{
             overflow:hidden;
         }
+        .header .inner{
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+            height:70px;
+        }
+        .h-left{
+            width:97px;
+        }
+        .sm-nav{
+            display:none;
+            justify-content:flex-end;
+            align-items:center;
+            font-weight:300;
+            font-size:12px;
+            color:#999;
+        }
+        .sm-nav li:nth-child(1),.sm-nav li:nth-child(2){
+            padding:0 16px;
+        }
+        .ico-sns{
+            margin-left:22px;
+            font-size:24px;
+            color: #071f60;
+        }
+        .ico-sns:last-of-type{
+            padding:5px;
+            border-radius:50%;
+            background-color:#071f60;
+            font-size:14px;
+            color:#fff;
+        }
+        .btn-nav{
+            display:flex;
+            flex-flow:column nowrap;
+            align-items:flex-end;
+            cursor:pointer;
+
+        }
+        .btn-nav .line{
+            width:30px;
+            height:4px;
+            margin-bottom:6px;
+            border-radius:2px;
+            background-color:#000;
+            text-indent:-9999px;
+        }
+        .btn-nav .line:last-child{
+            margin-bottom:0;
+        }
+        .nav{
+            position:fixed;
+            left:100%;
+            right:-100%;
+            top:70px;
+            bottom:0;
+            background-color:#fff;
+            transition:0.3s;
+        }
+        .nav.active{
+            left:30%;
+            right:0;
+        }
+        .main-nav{
+            display: flex;
+            flex-flow:row wrap;
+        }
+        .main-nav>li{
+            width:100%;
+            border-bottom:1px solid #ccc;
+            padding:20px;
+        }
+
+
+
+        /* 데스크탑 스타일 */
+        @media (min-width:1200px){
+            .header .inner{
+                height:120px;
+            }
+            .h-left{
+                width:194px;
+            }
+            .sm-nav{
+                display:flex;
+            }
+            .btn-nav{
+                display:none;
+            }
+            .nav{
+                position:static;
+            }
+            .main-nav>li{
+                width:auto;
+                margin-left:80px;
+                border-bottom:none;
+                padding:0;
+            }
+        }
+
     </style>
 </head>
 <body>
@@ -72,70 +177,72 @@
     <section class="wrap">
         <header class="header">
             <div class="container">
-                <div class="h-left">
-                    <h1><a href="./index.html"><img src="./images/logo.png" alt="시작페이지로 이동"></a></h1>
-                </div>
-                <div class="h-right">
-                    <ul class="sm-nav">
-                        <li><a href="#">더본코리아</a></li>
-                        <li><a href="#">매장찾기</a></li>
-                        <li><a href="#"><i class="fab fa-facebook"></i></a></li>
-                        <li><a href="#"><i class="fab fa-instagram"></i></a></li>
-                    </ul>
-                    <div class="btn-nav">
-                        <div class="line">라인</div>
-                        <div class="line">라인</div>
-                        <div class="line">라인</div>
+                <div class="inner ">
+                    <div class="h-left">
+                        <h1><a href="./index.html"><img src="./images/logo.png" alt="시작페이지로 이동"></a></h1>
                     </div>
-                    <nav class="nav">
-                        <ul class="main-nav">
-                            <li>
-                                <a href="#">빽다방</a>
-                                    <ul class="sub-nav">
-                                        <li><a href="#">ceo 인사말</a></li>
-                                        <li><a href="#">빽다방 소개</a></li>
-                                        <li><a href="#">커피이야기</a></li>
-                                    </ul>
-                            </li>
-                            <li>
-                                <a href="#">메뉴</a>
-                                    <ul class="sub-nav">
-                                        <li><a href="#">신메뉴</a></li>
-                                        <li><a href="#">커피</a></li>
-                                        <li><a href="#">음료</a></li>
-                                        <li><a href="#">아이스크림/디저트</a></li>
-                                        <li><a href="#">빽스치노</a></li>
-                                    </ul>
-                            </li>
-                            <li>
-                                <a href="#">소식</a>
-                                    <ul class="sub-nav">
-                                        <li><a href="#">소식</a></li>
-                                        <li><a href="#">이벤트</a></li>
-                                        <li><a href="#">친절 우수매장</a></li>
-                                    </ul>
-                            </li>
-                            <li>
-                                <a href="#">커뮤니티</a>
-                                    <ul class="sub-nav">
-                                        <li><a href="#">커피 클래스</a></li>
-                                    </ul>
-                            </li>
-                            <li>
-                                <a href="#">매장안내</a>
-                                    <ul class="sub-nav">
-                                        <li><a href="#">매장찾기</a></li>
-                                    </ul>
-                            </li>
-                            <li>
-                                <a href="#">창업안내</a>
-                                    <ul class="sub-nav">
-                                        <li><a href="#">가맹정보 및 절차</a></li>
-                                    </ul>
-                            </li>
-                            <li><a href="#">고객의 소리</a></li>
+                    <div class="h-right">
+                        <ul class="sm-nav">
+                            <li><a href="#">더본코리아</a></li>
+                            <li><a href="#">매장찾기</a></li>
+                            <li class="ico-sns"><a href="#"><i class="fab fa-facebook"></i></a></li>
+                            <li class="ico-sns"><a href="#"><i class="fab fa-instagram"></i></a></li>
                         </ul>
-                    </nav>
+                        <div class="btn-nav">
+                            <div class="line">라인</div>
+                            <div class="line">라인</div>
+                            <div class="line">라인</div>
+                        </div>
+                        <nav class="nav">
+                            <ul class="main-nav">
+                                <li>
+                                    <a href="#">빽다방</a>
+                                        <ul class="sub-nav">
+                                            <li><a href="#">ceo 인사말</a></li>
+                                            <li><a href="#">빽다방 소개</a></li>
+                                            <li><a href="#">커피이야기</a></li>
+                                        </ul>
+                                </li>
+                                <li>
+                                    <a href="#">메뉴</a>
+                                        <ul class="sub-nav">
+                                            <li><a href="#">신메뉴</a></li>
+                                            <li><a href="#">커피</a></li>
+                                            <li><a href="#">음료</a></li>
+                                            <li><a href="#">아이스크림/디저트</a></li>
+                                            <li><a href="#">빽스치노</a></li>
+                                        </ul>
+                                </li>
+                                <li>
+                                    <a href="#">소식</a>
+                                        <ul class="sub-nav">
+                                            <li><a href="#">소식</a></li>
+                                            <li><a href="#">이벤트</a></li>
+                                            <li><a href="#">친절 우수매장</a></li>
+                                        </ul>
+                                </li>
+                                <li>
+                                    <a href="#">커뮤니티</a>
+                                        <ul class="sub-nav">
+                                            <li><a href="#">커피 클래스</a></li>
+                                        </ul>
+                                </li>
+                                <li>
+                                    <a href="#">매장안내</a>
+                                        <ul class="sub-nav">
+                                            <li><a href="#">매장찾기</a></li>
+                                        </ul>
+                                </li>
+                                <li>
+                                    <a href="#">창업안내</a>
+                                        <ul class="sub-nav">
+                                            <li><a href="#">가맹정보 및 절차</a></li>
+                                        </ul>
+                                </li>
+                                <li><a href="#">고객의 소리</a></li>
+                            </ul>
+                        </nav>
+                    </div>
                 </div>
 
             </div>
@@ -175,5 +282,13 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <!-- bxslider -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bxslider/4.2.15/jquery.bxslider.min.js" integrity="sha512-p55Bpm5gf7tvTsmkwyszUe4oVMwxJMoff7Jq3J/oHaBk+tNQvDKNz9/gLxn9vyCjgd6SAoqLnL13fnuZzCYAUA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script>
+        $('.btn-nav').on({
+            'click':function(){
+                $('.nav').toggleClass('active');
+            }
+        })
+    </script>
 </body>
 </html>
