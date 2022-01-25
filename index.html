@@ -49,6 +49,8 @@
             margin:0 auto;
             padding:0 10px;
         }
+        
+
         .skip-menu a{
             position:absolute;
             left:50%;
@@ -154,7 +156,6 @@
         .sub-nav li:last-of-type{
             border-bottom:none;
         }
-
         .main-slider .container{
             max-width:100%;
             padding:0;
@@ -178,6 +179,7 @@
             display:none;
         }
         .coffee-story{
+            margin-bottom:10px;
             background-image:url('./images/main_sec1.jpg');
             background-repeat:no-repeat;
             background-position:center;
@@ -251,40 +253,74 @@
             width:4px;
             height:20px;
         }
-        .fresh-coffee{
+
+
+        .item-sec{
             position:relative;
+            margin-bottom:10px;
         }
-        .fresh-coffee .img-box{
+        .item-sec .container{
             position:absolute;
             left:0;
-            right:0;
             top:0;
-            z-index:0;
+            bottom:0;
         }
-        .fresh-coffee .inner{
-            position: relative;
-            z-index:1;
-            padding:30px 0;
+        .item-sec .inner{
+            height:100%;
+            padding-top:10px;
+            display:flex;
+            flex-flow:column nowrap;
+            justify-content:space-between;
         }
-        .fresh-coffee h3{
+        .item-sec h3{
             font-weight:900;
-            font-size:1.2em;
+            font-size:1.8em;
             color:#6b4d30;
-            line-height:1.2;
         }
-        .fresh-coffee h3::after{
-            content:'';
-            display:block;
+        .item-sec hr{
             width:37px;
             height:2px;
-            margin:30px 0;
+            margin:13px 0;
+            border:none;
             background-color:#6b4d30;
         }
-        .fresh-coffee p{
-            font-weight:700;
-            line-height:1.5;
+        .item-sec p{
+            display:none;
+            font-weight:500;
+            font-size:0.9em;
+            color:#222;
+            line-height: 1.3;
         }
 
+        .various h3{
+            color:#071f60;
+        }
+        .various hr{
+            background-color:#071f60;
+        }
+        .sweet h3{
+            color:#f1ae1d;
+        }
+        .sweet hr{
+            background-color:#f1ae1d;
+        }
+        .dessert h3{
+            color:#fff;
+        }
+        .dessert hr{
+            background-color:#fff;
+        }
+        
+
+        /* 태플릿 스타일 */
+        @media (min-width:768px){
+            .item-sec .fresh-coffee .inner{
+                padding-top:20px;
+            }
+            .item-sec .fresh-coffee h3{
+                font-size:2.4em;
+            }
+        }
 
 
         /* 데스크탑 스타일 */
@@ -323,6 +359,41 @@
             .btn-hover{
                 margin:30px auto 30px 0;
             }
+            .item-sec .container{
+                left:50%;
+                transform:translateX(-50%);
+            }
+            .item-sec .inner{
+                padding-top:30px;
+            }
+            .item-sec h3{
+                font-size:3em;
+            }
+            .item-sec hr{
+                margin:30px 0;
+            }
+            .item-sec p{
+                display:block;
+            }
+            .various-sweet article{
+                float:left;
+            }
+            .various-sweet article:nth-child(1){
+                width:calc(60% - 5PX);
+                margin-right:5px;
+            }
+            .various-sweet article:nth-child(2){
+                width:calc(40% - 5PX);
+                margin-left:5px;
+            }
+            .various .inner{
+                width:700px;
+                margin:0 0 0 auto;
+            }
+            .sweet .inner{
+                padding-left:30px;
+            }
+
         }
 
     </style>
@@ -461,25 +532,28 @@
             </div>
 
         </section>
-        <section class="sec fresh-coffee">
+        <section class="sec item-sec fresh-coffee">
+            <div class="img-box">
+                <picture>
+                    <source media="(min-width:1200px)" srcset="./images/main_sec2.jpg">
+                    <img src="./images/mmain_sec2.jpg" alt="프레쉬 커피">
+                </picture>
+            </div>
             <div class="container">
-                <div class="img-box">
-                    <picture>
-                        <source media="(min-width:1200px)" srcset="./images/main_sec2.jpg">
-                        <img src="./images/mmain_sec2.jpg" alt="프레쉬 커피">
-                    </picture>
-                </div>
                 <div class="inner">
-                    <h3>
-                        FRESH
-                        <br>
-                        COFFEE
-                    </h3>
-                    <P>
-                        신선한 뉴크롭 원두를 사용하여
-                        <br>
-                        추출한 커피메뉴!
-                    </P>
+                    <div class="content">
+                        <h3>
+                            FRESH
+                            <br>
+                            COFFEE
+                        </h3>
+                        <hr>
+                        <P>
+                            신선한 뉴크롭 원두를 사용하여
+                            <br>
+                            추출한 커피메뉴!
+                        </P>
+                    </div>
                     <div class="btn-hover">
                         <div class="ico-paik">
                             <img src="./images/main_sec6.png" alt="바로가기 아이콘">
@@ -490,15 +564,142 @@
             </div>
 
         </section>
-        <section class="sec various-sweet">
-            <div class="container"></div>
-
+        <section class="sec various-sweet clearfix">
+            <article class="item-sec various">
+                <div class="img-box">
+                    <picture>
+                        <source media="(min-width:1200px)" srcset="./images/main_sec3.jpg">
+                        <img src="./images/mmain_sec3.jpg" alt="에이드">
+                    </picture>
+                </div>
+                <div class="container">
+                    <div class="inner">
+                        <div class="content">
+                            <h3>
+                                VARIOUS
+                                <br>
+                                BEVERAGE
+                            </h3>
+                            <hr>
+                            <P>
+                                에이드, 티, 주스 등 취향대로
+                                <br>
+                                골라 먹는 즐거움!
+                            </P>
+                        </div>
+                        <div class="btn-hover">
+                            <div class="ico-paik">
+                                <img src="./images/main_sec6.png" alt="바로가기 아이콘">
+                            </div>
+                            <div class="rotate-plus"></div>
+                        </div>
+                    </div>
+                </div>
+    
+            </article>
+            <article class="item-sec sweet">
+                <div class="img-box">
+                    <picture>
+                        <source media="(min-width:1200px)" srcset="./images/main_sec4.jpg">
+                        <img src="./images/mmain_sec4.jpg" alt="빽스치노">
+                    </picture>
+                </div>
+                <div class="container">
+                    <div class="inner">
+                        <div class="content">
+                            <h3>
+                                SWEET
+                                <br>
+                                PAIK'S CCINO
+                            </h3>
+                            <hr>
+                            <P>
+                                달콤 시원한 빽다방
+                                <br>
+                                시그니처 메뉴!
+                            </P>
+                        </div>
+                        <div class="btn-hover">
+                            <div class="ico-paik">
+                                <img src="./images/main_sec6.png" alt="바로가기 아이콘">
+                            </div>
+                            <div class="rotate-plus"></div>
+                        </div>
+                    </div>
+                </div>
+    
+            </article>
         </section>
+
         <section class="sec dessert-fran-store">
-            <div class="container"></div>
-
+            <article class="item-sec dessert">
+                <div class="img-box">
+                    <picture>
+                        <source media="(min-width:1200px)" srcset="./images/main_sec5.jpg">
+                        <img src="./images/mmain_sec5.jpg" alt="디저트">
+                    </picture>
+                </div>
+                <div class="container">
+                    <div class="inner">
+                        <div class="content">
+                            <h3>
+                                TASTY
+                                <br>
+                                ICE CREAM /
+                                <br>
+                                DESSERT
+                            </h3>
+                            <hr>
+                            <P>
+                                달콤한 아이스크림부터
+                                <br>
+                                든든한 브레드 까지!
+                            </P>
+                        </div>
+                        <div class="btn-hover">
+                            <div class="ico-paik">
+                                <img src="./images/main_sec6.png" alt="바로가기 아이콘">
+                            </div>
+                            <div class="rotate-plus"></div>
+                        </div>
+                    </div>
+                </div>
+    
+            </article>
+            <article>
+                <div class="img-box">
+                    <picture>
+                        <source media="(min-width:1200px)" srcset="./images/main_sec2.jpg">
+                        <img src="./images/mmain_sec2.jpg" alt="프레쉬 커피">
+                    </picture>
+                </div>
+                <div class="container">
+                    <div class="inner">
+                        <div class="content">
+                            <h3>
+                                FRESH
+                                <br>
+                                COFFEE
+                            </h3>
+                            <hr>
+                            <P>
+                                신선한 뉴크롭 원두를 사용하여
+                                <br>
+                                추출한 커피메뉴!
+                            </P>
+                        </div>
+                        <div class="btn-hover">
+                            <div class="ico-paik">
+                                <img src="./images/main_sec6.png" alt="바로가기 아이콘">
+                            </div>
+                            <div class="rotate-plus"></div>
+                        </div>
+                    </div>
+                </div>
+    
+            </article>
         </section>
-        <section class="sec sns">
+        <section class="sns">
             <div class="container"></div>
 
         </section>
