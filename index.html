@@ -310,6 +310,13 @@
         .dessert hr{
             background-color:#fff;
         }
+        .dessert-fran-store{
+            display:flex;
+            flex-flow:row wrap;
+        }
+        .dessert-fran-store article{
+            width:100%;
+        }
         
 
         /* 태플릿 스타일 */
@@ -392,6 +399,14 @@
             }
             .sweet .inner{
                 padding-left:30px;
+            }
+            .dessert-fran-store article:nth-child(1){
+                flex:6;
+                order:2;
+            }
+            .dessert-fran-store article:nth-child(2){
+                flex:6;
+                order:1;
             }
 
         }
@@ -630,7 +645,6 @@
     
             </article>
         </section>
-
         <section class="sec dessert-fran-store">
             <article class="item-sec dessert">
                 <div class="img-box">
@@ -667,36 +681,7 @@
     
             </article>
             <article>
-                <div class="img-box">
-                    <picture>
-                        <source media="(min-width:1200px)" srcset="./images/main_sec2.jpg">
-                        <img src="./images/mmain_sec2.jpg" alt="프레쉬 커피">
-                    </picture>
-                </div>
-                <div class="container">
-                    <div class="inner">
-                        <div class="content">
-                            <h3>
-                                FRESH
-                                <br>
-                                COFFEE
-                            </h3>
-                            <hr>
-                            <P>
-                                신선한 뉴크롭 원두를 사용하여
-                                <br>
-                                추출한 커피메뉴!
-                            </P>
-                        </div>
-                        <div class="btn-hover">
-                            <div class="ico-paik">
-                                <img src="./images/main_sec6.png" alt="바로가기 아이콘">
-                            </div>
-                            <div class="rotate-plus"></div>
-                        </div>
-                    </div>
-                </div>
-    
+                fran store
             </article>
         </section>
         <section class="sns">
