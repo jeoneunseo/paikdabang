@@ -187,9 +187,11 @@
             display: flex;
             flex-flow:row wrap;
         }
+
         .main-nav>li{
             width:100%;
             border-bottom:1px solid #ccc;
+            position:relative;
         }
         .main-nav>li>a{
             display:block;
@@ -594,8 +596,36 @@
             .main-nav>li>a{
                 padding:0;
             }
+            .main-nav>li::before{
+                content:'';
+                display:block;
+                position:fixed;
+                left:0;
+                right:0;
+                top:120px;
+                z-index:10;
+                height:0px;
+                background-color:#ff0;
+                transition:0.15s;
+            }
+            .main-nav>li.active::before{
+                height:200px;
+            }
             .sub-nav{
-                display:none !important;
+                display:none;
+                position:absolute;
+                left:-40px;
+                right:-40px;
+                top:50px;
+                z-index:11;
+                margin:0;
+                padding:0;
+            }
+            .sub-nav li{
+                margin:0;
+                border-bottom:none;
+                padding:10px 0;
+                text-align:center;
             }
             .coffee-story p{
                 display:block;
@@ -660,7 +690,11 @@
             }
             .fran-store .inner .fran{
                 margin-right:0;
+                order:2;
+            }
+            .fran-store .inner .store{
                 margin-bottom:10px;
+                order:1;
             }
             .fran-store h3{
                 font-size:3.0em;
@@ -1068,9 +1102,11 @@
             }
         })
         $('.main-nav>li').on({
-            'click':function(){
-                $('.main-nav>li').not($(this)).
-                $(this).children('.sub-nav').slideToggle();
+            'click':function(){ 
+                $('.main-nav>li').not($(this)).children('.sub-nav').slideUp(200);
+                $(this).children('.sub-nav').slideToggle(200);
+                $('.main-nav>li').not($(this)).removeClass('active');
+                $(this).toggleClass('active');
             }
         })
         $('.slider').bxSlider();
