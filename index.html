@@ -38,6 +38,7 @@
             font-size:16px;
             color:#222;
             line-height:1;
+            scroll-behavior:smooth;
         }
         .clearfix::after{
             content:'';
@@ -109,6 +110,14 @@
         }
         .wrap{
             overflow:hidden;
+        }
+        .header{
+            position:fixed;
+            left:0;
+            right:0;
+            top:0;
+            z-index:9998;
+            background-color:#fff;
         }
         .header .inner{
             display:flex;
@@ -197,6 +206,9 @@
         }
         .sub-nav li:last-of-type{
             border-bottom:none;
+        }
+        .main-slider{
+            padding-top:70px;
         }
         .main-slider .container{
             max-width:100%;
@@ -472,7 +484,8 @@
             border:1px solid #666;
             border-radius:2px;
             background-color:#fff;
-            color:#000;
+            color:#222;
+            display:none;
         }
         .footer .f-site .f-list li{
             padding:10px;
@@ -480,6 +493,36 @@
         .footer .f-site .f-list li:hover{
             background-color:#333;
             color:#fff;
+        }
+        .scr-top{
+            position: fixed;
+            left:0;
+            right:0;
+            bottom:30px;
+        }
+        .btn-top{
+            display:flex;
+            flex-flow:column nowrap;
+            justify-content:space-evenly;
+            align-items:center;
+            width:40px;
+            height:40px;
+            margin:0 0 0 auto;
+            background-color:#ff0;
+            font-weight:700;
+            font-size: 0.5em;
+        }
+        .btn-top::before{
+            box-sizing:border-box;
+            content:'';
+            display:block;
+            width:10px;
+            height:10px;
+            border-top:0 solid black;
+            border-left:5px solid transparent;
+            border-right:5px solid transparent;
+            border-bottom:10px solid #333;
+
         }
         
 
@@ -560,6 +603,9 @@
             .btn-hover{
                 margin:30px auto 30px 0;
             }
+            .main-slider{
+                padding-top:120px;
+            }
             .item-sec .container{
                 left:50%;
                 transform:translateX(-50%);
@@ -601,7 +647,6 @@
             .dessert-fran-store article:nth-child(2){
                 flex:48;
                 order:1;
-                margin-right:10px;
             }
             .fran-store .inner{
                 flex-direction:column;
@@ -723,7 +768,7 @@
                 </div>
             </div>
         </header>
-        <section class="sec main-slider">
+        <section class="sec main-slider" id="top">
             <div class="container">
                 <div class="slider">
                     <div>
@@ -1001,6 +1046,13 @@
 
 
         </footer>
+        <section class="scr-top">
+            <div class="container">
+                <a href="#top" class="btn-top">
+                    <span>TOP</span>
+                </a>
+            </div>
+        </section>
     </section>
 
 
@@ -1017,11 +1069,16 @@
         })
         $('.main-nav>li').on({
             'click':function(){
+                $('.main-nav>li').not($(this)).
                 $(this).children('.sub-nav').slideToggle();
             }
         })
-
         $('.slider').bxSlider();
+        $('.f-site').on({
+            'click':function(){
+                $('.f-list').slideToggle(200); 
+            }
+        })
     </script>
 </body>
 </html>
