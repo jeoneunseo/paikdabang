@@ -49,8 +49,6 @@
             margin:0 auto;
             padding:0 10px;
         }
-        
-
         .skip-menu a{
             position:absolute;
             left:50%;
@@ -253,8 +251,6 @@
             width:4px;
             height:20px;
         }
-
-
         .item-sec{
             position:relative;
             margin-bottom:10px;
@@ -287,11 +283,10 @@
         .item-sec p{
             display:none;
             font-weight:500;
-            font-size:0.9em;
+            font-size:1.2em;
             color:#222;
             line-height: 1.3;
         }
-
         .various h3{
             color:#071f60;
         }
@@ -304,7 +299,7 @@
         .sweet hr{
             background-color:#f1ae1d;
         }
-        .dessert h3{
+        .dessert h3, .dessert p{
             color:#fff;
         }
         .dessert hr{
@@ -317,7 +312,24 @@
         .dessert-fran-store article{
             width:100%;
         }
-        
+        .fran-store .inner{
+            display:flex;
+            flex-flow:row nowrap;
+        }
+        .fran-store .inner>div{
+            flex:1;
+            height:240px;
+            border:2px solid #071f60;
+            padding:10px;
+        }
+        .fran-store .inner .fran{
+            margin-right:10px;
+        }
+        .fran-store h3{
+            font-weight:900;
+            font-size:2em;
+        }
+
 
         /* 태플릿 스타일 */
         @media (min-width:768px){
@@ -397,16 +409,24 @@
                 width:700px;
                 margin:0 0 0 auto;
             }
-            .sweet .inner{
+            .sweet .inner,.dessert .inner{
                 padding-left:30px;
             }
             .dessert-fran-store article:nth-child(1){
-                flex:6;
+                flex:52;
                 order:2;
             }
             .dessert-fran-store article:nth-child(2){
-                flex:6;
+                flex:48;
                 order:1;
+                margin-right:10px;
+            }
+            .fran-store .inner{
+                flex-direction:column;
+            }
+            .fran-store .inner .fran{
+                margin-right:0;
+                margin-bottom:10px;
             }
 
         }
@@ -680,8 +700,29 @@
                 </div>
     
             </article>
-            <article>
-                fran store
+            <article class="fran-store">
+                <div class="container">
+                    <div class="inner">
+                        <div class="fran">
+                            <h3>franchise</h3>
+                            <p>빽다방 창업안내를 도와드리겠습니다.</p>
+                            <div class="btn-hover">
+                                <div class="ico-paik">
+                                    <img src="./images/main_sec6.png" alt="바로가기 아이콘">
+                                </div>
+                                <div class="rotate-plus"></div>
+                            </div>
+                        </div>
+                        <div class="store">
+                            <h3>store</h3>
+                            <p>원하시는 지역의 매장을 검색해 보세요!</p>
+                            <div class="search">
+                                <input type="search">
+                                <i class="fas fa-search"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </article>
         </section>
         <section class="sns">
